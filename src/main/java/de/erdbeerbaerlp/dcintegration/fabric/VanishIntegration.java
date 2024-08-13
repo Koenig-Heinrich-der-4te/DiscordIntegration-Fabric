@@ -1,6 +1,5 @@
-package de.erdbeerbaerlp.dcintegration.fabric.vanish_integration;
+package de.erdbeerbaerlp.dcintegration.fabric;
 
-import de.erdbeerbaerlp.dcintegration.fabric.mixin.ConnectionEvents;
 import me.drex.vanish.api.VanishAPI;
 import me.drex.vanish.api.VanishEvents;
 import net.fabricmc.loader.api.FabricLoader;

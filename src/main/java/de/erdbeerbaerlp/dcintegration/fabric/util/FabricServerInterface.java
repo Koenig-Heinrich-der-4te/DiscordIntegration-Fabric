@@ -18,7 +18,7 @@ import de.erdbeerbaerlp.dcintegration.common.util.ComponentUtils;
 import de.erdbeerbaerlp.dcintegration.common.util.McServerInterface;
 import de.erdbeerbaerlp.dcintegration.common.util.MinecraftPermission;
 import de.erdbeerbaerlp.dcintegration.fabric.command.DCCommandSender;
-import de.erdbeerbaerlp.dcintegration.fabric.vanish_integration.VanishIntegration;
+import de.erdbeerbaerlp.dcintegration.fabric.VanishIntegration;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;

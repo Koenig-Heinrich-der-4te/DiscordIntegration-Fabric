@@ -1,8 +1,9 @@
 package de.erdbeerbaerlp.dcintegration.fabric.mixin;
 
 
+import de.erdbeerbaerlp.dcintegration.fabric.ConnectionEvents;
 import de.erdbeerbaerlp.dcintegration.fabric.DiscordIntegrationMod;
-import de.erdbeerbaerlp.dcintegration.fabric.vanish_integration.VanishIntegration;
+import de.erdbeerbaerlp.dcintegration.fabric.VanishIntegration;
 import net.minecraft.network.DisconnectionInfo;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;

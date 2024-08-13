@@ -1,4 +1,4 @@
-package de.erdbeerbaerlp.dcintegration.fabric.mixin;
+package de.erdbeerbaerlp.dcintegration.fabric;
 
 import de.erdbeerbaerlp.dcintegration.common.DiscordIntegration;
 import de.erdbeerbaerlp.dcintegration.common.WorkThread;
@@ -7,7 +7,6 @@ import de.erdbeerbaerlp.dcintegration.common.storage.Localization;
 import de.erdbeerbaerlp.dcintegration.common.storage.linking.LinkManager;
 import de.erdbeerbaerlp.dcintegration.common.util.DiscordMessage;
 import de.erdbeerbaerlp.dcintegration.common.util.TextColors;
-import de.erdbeerbaerlp.dcintegration.fabric.DiscordIntegrationMod;
 import de.erdbeerbaerlp.dcintegration.fabric.util.FabricMessageUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -20,6 +19,7 @@ import java.util.UUID;
 import static de.erdbeerbaerlp.dcintegration.common.DiscordIntegration.INSTANCE;
 
 public class ConnectionEvents {
+    public static void doNothing() {}
     public static void onPlayerLeave(ServerPlayerEntity player) {
         if (DiscordIntegrationMod.stopped) return; //Try to fix player leave messages after stop!
         if (LinkManager.isPlayerLinked(player.getUuid()) && LinkManager.getLink(null, player.getUuid()).settings.hideFromDiscord)
