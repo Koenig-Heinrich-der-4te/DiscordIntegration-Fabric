@@ -15,6 +15,7 @@ import de.erdbeerbaerlp.dcintegration.fabric.bstats.Metrics;
 import de.erdbeerbaerlp.dcintegration.fabric.command.McCommandDiscord;
 import de.erdbeerbaerlp.dcintegration.fabric.util.FabricMessageUtils;
 import de.erdbeerbaerlp.dcintegration.fabric.util.FabricServerInterface;
+import de.erdbeerbaerlp.dcintegration.fabric.vanish_integration.VanishIntegration;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel;
@@ -48,6 +49,7 @@ public class DiscordIntegrationMod implements DedicatedServerModInitializer {
     public static boolean stopped = false;
 
     public static SignedMessage handleChatMessage(SignedMessage message, ServerPlayerEntity player) {
+        VanishIntegration.initialize();
         if (DiscordIntegration.INSTANCE == null) return message;
         if (!((FabricServerInterface)DiscordIntegration.INSTANCE.getServerInterface()).playerHasPermissions(player, MinecraftPermission.SEMD_MESSAGES, MinecraftPermission.USER))
             return message;

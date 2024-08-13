@@ -18,6 +18,7 @@ import de.erdbeerbaerlp.dcintegration.common.util.ComponentUtils;
 import de.erdbeerbaerlp.dcintegration.common.util.McServerInterface;
 import de.erdbeerbaerlp.dcintegration.common.util.MinecraftPermission;
 import de.erdbeerbaerlp.dcintegration.fabric.command.DCCommandSender;
+import de.erdbeerbaerlp.dcintegration.fabric.vanish_integration.VanishIntegration;
 import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
@@ -143,6 +144,7 @@ public class FabricServerInterface implements McServerInterface{
     public HashMap<UUID, String> getPlayers() {
         final HashMap<UUID, String> players = new HashMap<>();
         for (final ServerPlayerEntity p : server.getPlayerManager().getPlayerList()) {
+            if (VanishIntegration.isVanished(p)) continue;
             players.put(p.getUuid(), p.getDisplayName().getString().isEmpty() ? p.getName().getString() : p.getDisplayName().getString());
         }
         return players;
