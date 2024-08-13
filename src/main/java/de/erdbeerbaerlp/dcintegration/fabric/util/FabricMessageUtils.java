@@ -8,6 +8,7 @@ import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import de.erdbeerbaerlp.dcintegration.common.storage.Configuration;
 import de.erdbeerbaerlp.dcintegration.common.util.MessageUtils;
+import de.erdbeerbaerlp.dcintegration.fabric.VanishIntegration;
 import de.erdbeerbaerlp.dcintegration.fabric.util.accessors.ShowInTooltipAccessor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -31,7 +32,7 @@ import java.util.Arrays;
 
 public class FabricMessageUtils extends MessageUtils {
     public static String formatPlayerName(ServerPlayerEntity player) {
-        if (player.getPlayerListName() != null)
+        if (player.getPlayerListName() != null && !VanishIntegration.isVanished(player))
             return Formatting.strip(player.getPlayerListName().getString());
         else
             return Formatting.strip(player.getName().getString());
