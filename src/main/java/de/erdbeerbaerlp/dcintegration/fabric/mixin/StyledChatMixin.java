@@ -1,6 +1,7 @@
 package de.erdbeerbaerlp.dcintegration.fabric.mixin;
 
 import de.erdbeerbaerlp.dcintegration.fabric.DiscordIntegrationMod;
+import de.erdbeerbaerlp.dcintegration.fabric.VanishIntegration;
 import eu.pb4.styledchat.StyledChatUtils;
 import net.minecraft.network.message.MessageType;
 import net.minecraft.network.message.SignedMessage;
@@ -17,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class StyledChatMixin {
     @Redirect(method = "modifyForSending", at = @At(value = "INVOKE", target = "Leu/pb4/styledchat/StyledChatUtils;formatMessage(Lnet/minecraft/network/message/SignedMessage;Lnet/minecraft/server/command/ServerCommandSource;Lnet/minecraft/registry/RegistryKey;)Lnet/minecraft/text/Text;"))
     private static Text message(SignedMessage msg, ServerCommandSource s, RegistryKey<MessageType> e) {
-        if (e.equals(MessageType.CHAT))
+        if (e.equals(MessageType.CHAT) && !VanishIntegration.isVanished(s.getPlayer()))
             msg = DiscordIntegrationMod.handleChatMessage(msg, s.getPlayer());
         return StyledChatUtils.formatMessage(msg, s, e);
     }

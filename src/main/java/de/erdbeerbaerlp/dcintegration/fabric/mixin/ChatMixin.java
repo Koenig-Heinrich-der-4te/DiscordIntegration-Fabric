@@ -25,6 +25,5 @@ public class ChatMixin {
         if (VanishIntegration.isVanished(player)) return;
         signedMessage = DiscordIntegrationMod.handleChatMessage(signedMessage, sender);
         instance.broadcast(signedMessage, sender, params);
-
     }
 }
